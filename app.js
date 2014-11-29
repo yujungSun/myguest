@@ -15,7 +15,7 @@ app.use(bodyParser.json());
 app.use(methodOverride());
 
 // # 3
-//routes = require('./routes/guest')(app);
+routes = require('./routes/guest')(app);
 
 // # 2
 mongoose.connect('mongodb://localhost/guest', function(err, res) {

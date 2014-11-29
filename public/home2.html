@@ -1,0 +1,36 @@
+<!doctype html>
+<html ng-app="myGuestApp">
+	<head>
+		<meta charset="UTF-8">
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.2/angular.min.js"></script>
+		<script src="myGuestApp.js"></script>
+	</head>
+	<body>
+		<h2>방명록</h2>
+		<div ng-controller="MyGuestController">
+			<div ng-if="guests.length>0">
+				<div ng-repeat="guest in guests">
+					<span>{{guest.name}}</span>
+					<span>{{guest.email}}</span>
+					<span>{{guest.age}}</span>
+					<span>{{guest.gender}}</span>
+					<button type="button" ng-click="deleteGuest(guest._id)">삭제</button>
+				</div>
+			</div>
+			<div ng-if="guests.length<1">
+				<span>명단 없음</span>
+			</div>
+			<hr/>
+			<div>
+				<form ng-submit="addGuest()">
+					<input type="text" ng-model="newGuest.name"  size="20" placeholder="name">
+					<input type="email" ng-model="newGuest.email"  size="30" placeholder="email">
+					<input type="number" ng-model="newGuest.age" placeholder="age">
+					<input type="radio" ng-model="newGuest.gender" value="male">Male
+					<input type="radio" ng-model="newGuest.gender" value="female">Female
+					<input type="submit" value="추가">
+				 </form>
+			</div>
+		</div>
+	</body>
+</html>
